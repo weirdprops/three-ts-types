@@ -10,14 +10,9 @@ import { Camera } from '../cameras/Camera.js';
 import { Material } from '../materials/Material.js';
 import { Group } from '../objects/Group.js';
 import { Intersection, Raycaster } from './Raycaster.js';
-import { EventDispatcher } from './EventDispatcher.js';
+import { BaseEvent, Event, EventDispatcher } from './EventDispatcher.js';
 import { BufferGeometry } from './BufferGeometry.js';
 import { AnimationClip } from '../animation/AnimationClip.js';
-
-export interface Object3DEventMap {
-    added: {};
-    removed: {};
-}
 
 /**
  * This is the base class for most objects in three.js and provides a set of properties and methods for manipulating objects in 3D space.
@@ -26,7 +21,7 @@ export interface Object3DEventMap {
  * @see {@link https://threejs.org/docs/index.html#api/en/core/Object3D | Official Documentation}
  * @see {@link https://github.com/mrdoob/three.js/blob/master/src/core/Object3D.js | Source}
  */
-export class Object3D<TEventMap extends Object3DEventMap = Object3DEventMap> extends EventDispatcher<TEventMap> {
+export class Object3D<TEventMap extends BaseEvent = Event> extends EventDispatcher<TEventMap> {
     /**
      * This creates a new {@link Object3D} object.
      */
@@ -164,10 +159,27 @@ export class Object3D<TEventMap extends Object3DEventMap = Object3DEventMap> ext
     layers: Layers;
 
     /**
-     * Object gets rendered if `true`.
-     * @defaultValue `true`
+     * Map of visibility layers
      */
-    visible: boolean;
+    visibilityMap: Map<string, boolean>;
+
+    /**
+     * Set if object should be rendered (default visibility layer).
+     */
+    set visible(value: boolean);
+
+    /**
+     * Get if object should be rendered.
+     * @default true
+     */
+    get visible(): boolean;
+
+    /**
+     * Set if object should be rendered (specific visibility layer).
+     * @param key - visibility layer
+     * @param value - is visible
+     */
+    setVisibility(key: string, value: boolean): void;
 
     /**
      * Whether the object gets rendered into shadow map.
