@@ -1,38 +1,21 @@
 {
     "private": true,
-    "license": "MIT",
+    "type": "module",
     "name": "@types/three",
     "version": "0.156.0",
-    "scripts": {
-        "prepare": "husky install",
-        "test-all": "node --require source-map-support/register node_modules/@definitelytyped/dtslint-runner/ --path .",
-        "test": "node --require source-map-support/register node_modules/@definitelytyped/dtslint/ types/three",
-        "lint": "node --require source-map-support/register node_modules/@definitelytyped/dtslint/ types/three",
-        "format": "prettier --write .",
-        "format-check": "prettier --check .",
-        "contributors:add": "all-contributors add"
+    "exports": {
+        ".": {
+            "import": "./build/three.module.js",
+            "require": "./build/three.cjs"
+        },
+        "./examples/fonts/*": "./examples/fonts/*",
+        "./examples/jsm/*": "./examples/jsm/*",
+        "./addons/*": "./examples/jsm/*",
+        "./src/*": "./src/*",
+        "./nodes": "./examples/jsm/nodes/Nodes.js"
     },
-    "devDependencies": {
-        "@definitelytyped/definitions-parser": "latest",
-        "@definitelytyped/dtslint": "latest",
-        "@definitelytyped/dtslint-runner": "latest",
-        "@definitelytyped/header-parser": "latest",
-        "@definitelytyped/utils": "latest",
-        "@definitelytyped/eslint-plugin": "latest",
-        "@types/stats.js": "*",
-        "@types/webxr": "*",
-        "all-contributors-cli": "^6.26.1",
-        "husky": "^8.0.3",
-        "lint-staged": "^13.3.0",
-        "prettier": "2.8.8",
-        "source-map-support": "^0.5.21",
-        "typescript": "latest"
-    },
-    "workspaces": [
-        "examples-testing",
-        "types/three"
-    ],
-    "lint-staged": {
-        "*": "prettier --ignore-unknown --write"
+    "dependencies": {
+        "fflate": "~0.6.10",
+        "meshoptimizer": "~0.18.1"
     }
 }
