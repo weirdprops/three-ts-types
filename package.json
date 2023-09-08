@@ -1,6 +1,8 @@
 {
     "private": true,
     "license": "MIT",
+    "name": "@types/three",
+    "version": "0.156.0",
     "scripts": {
         "prepare": "husky install",
         "test-all": "node --require source-map-support/register node_modules/@definitelytyped/dtslint-runner/ --path .",

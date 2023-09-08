@@ -1,7 +1,8 @@
 import { Material } from '../materials/Material.js';
-import { Object3D, Object3DEventMap } from '../core/Object3D.js';
+import { Object3D } from '../core/Object3D.js';
 import { BufferGeometry } from '../core/BufferGeometry.js';
 import { Vector3 } from '../math/Vector3.js';
+import { BaseEvent, Event } from '../core/EventDispatcher';
 
 /**
  * Class representing triangular {@link https://en.wikipedia.org/wiki/Polygon_mesh | polygon mesh} based objects.
@@ -22,7 +23,7 @@ import { Vector3 } from '../math/Vector3.js';
 export class Mesh<
     TGeometry extends BufferGeometry = BufferGeometry,
     TMaterial extends Material | Material[] = Material | Material[],
-    TEventMap extends Object3DEventMap = Object3DEventMap,
+    TEventMap extends BaseEvent = Event,
 > extends Object3D<TEventMap> {
     /**
      * Create a new instance of {@link Mesh}

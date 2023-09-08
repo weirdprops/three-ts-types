@@ -47,9 +47,9 @@ export class EventDispatcher<E extends BaseEvent = Event> {
      * @param options Additional settings for event listener.
      */
     addEventListener<T extends E['type']>(
-      type: T,
-      listener: EventListener<E, T, this>,
-      options?: EventListenerOptions,
+        type: T,
+        listener: EventListener<E, T, this>,
+        options?: EventListenerOptions,
     ): void;
 
     /**

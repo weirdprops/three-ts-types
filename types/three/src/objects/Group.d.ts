@@ -1,4 +1,5 @@
-import { Object3D, Object3DEventMap } from '../core/Object3D.js';
+import { Object3D } from '../core/Object3D.js';
+import { BaseEvent, Event } from '../core/EventDispatcher';
 
 /**
  * Its purpose is to make working with groups of objects syntactically clearer.
@@ -22,7 +23,7 @@ import { Object3D, Object3DEventMap } from '../core/Object3D.js';
  * @see {@link https://threejs.org/docs/index.html#api/en/objects/Group | Official Documentation}
  * @see {@link https://github.com/mrdoob/three.js/blob/master/src/objects/Group.js | Source}
  */
-export class Group<TEventMap extends Object3DEventMap = Object3DEventMap> extends Object3D<TEventMap> {
+export class Group<TEventMap extends BaseEvent = Event> extends Object3D<TEventMap> {
     /**
      * Creates a new {@link Group}.
      */

@@ -1,11 +1,5 @@
 import { Camera, EventDispatcher, MOUSE, TOUCH, Vector3 } from '../../../src/Three.js';
 
-export interface OrbitControlsEventMap {
-    change: {};
-    start: {};
-    end: {};
-}
-
 /**
  * Orbit controls allow the camera to orbit around a target.
  * @param object - The camera to be controlled. The camera must not
@@ -13,7 +7,7 @@ export interface OrbitControlsEventMap {
  * @param domElement - The HTML element used for
  * event listeners.
  */
-export class OrbitControls extends EventDispatcher<OrbitControlsEventMap> {
+export class OrbitControls extends EventDispatcher {
     constructor(object: Camera, domElement?: HTMLElement);
 
     /**
