@@ -23,8 +23,7 @@ import { BaseEvent, Event } from '../core/EventDispatcher';
 export class Mesh<
     TGeometry extends BufferGeometry = BufferGeometry,
     TMaterial extends Material | Material[] = Material | Material[],
-    TEventMap extends BaseEvent = Event,
-> extends Object3D<TEventMap> {
+> extends Object3D {
     /**
      * Create a new instance of {@link Mesh}
      * @param geometry An instance of {@link THREE.BufferGeometry | BufferGeometry}. Default {@link THREE.BufferGeometry | `new THREE.BufferGeometry()`}.

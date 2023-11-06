@@ -21,7 +21,7 @@ import { AnimationClip } from '../animation/AnimationClip.js';
  * @see {@link https://threejs.org/docs/index.html#api/en/core/Object3D | Official Documentation}
  * @see {@link https://github.com/mrdoob/three.js/blob/master/src/core/Object3D.js | Source}
  */
-export class Object3D<TEventMap extends BaseEvent = Event> extends EventDispatcher<TEventMap> {
+export class Object3D extends EventDispatcher {
     /**
      * This creates a new {@link Object3D} object.
      */

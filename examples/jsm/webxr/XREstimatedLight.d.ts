@@ -1,4 +1,4 @@
-import { DirectionalLight, Group, LightProbe, Texture, WebGLRenderer, Object3DEventMap } from '../../../src/Three.js';
+import { DirectionalLight, Group, LightProbe, Texture, WebGLRenderer } from '../../../src/Three.js';
 
 export class SessionLightProbe {
     xrLight: XREstimatedLight;
@@ -23,12 +23,7 @@ export class SessionLightProbe {
     dispose: () => void;
 }
 
-export interface XREstimatedLightEventMap extends Object3DEventMap {
-    estimationstart: {};
-    estimationend: {};
-}
-
-export class XREstimatedLight extends Group<XREstimatedLightEventMap> {
+export class XREstimatedLight extends Group {
     lightProbe: LightProbe;
     directionalLight: DirectionalLight;
     environment: Texture;
